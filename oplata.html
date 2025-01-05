@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата Ретрит 2025</title>
+    <link rel="stylesheet" href="oplata.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Информация об оплате</h1>
+
+        <section class="info-section">
+            <h2>Личная информация</h2>
+            <p><strong>ФИО:</strong> <span id="fullName"></span></p>
+            <p><strong>Дата рождения:</strong> <span id="birthDate"></span></p>
+            <p><strong>Церковь/Община:</strong> <span id="church"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Телефон:</strong> <span id="phone"></span></p>
+            <p><strong>Служение:</strong> <span id="service"></span></p>
+            <p><strong>Город:</strong> <span id="city"></span></p>
+        </section>
+
+        <section class="info-section">
+            <h2>Дни участия</h2>
+            <ul id="sessionsList"></ul>
+        </section>
+
+        <section class="info-section">
+            <h2>Нужен перевод?</h2>
+            <p id="translation"></p>
+        </section>
+
+        <section class="info-section total-cost">
+            <h2>Итоговая сумма</h2>
+            <p><strong>Всего к оплате:</strong> <span id="totalCost"></span> грн</p>
+        </section>
+
+        <div class="button-container">
+            <button id="payNowButton" class="pay-button">Оплатить сейчас</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-header">
+                <h2>Выберите способ оплаты</h2>
+            </div>
+            <div class="modal-body">
+                <button class="payment-button" id="cashPaymentButton">Оплата наличными</button>
+                <button class="payment-button" id="cardPaymentButton">Оплата картой</button>
+            </div>
+            <div class="modal-footer hidden" id="qrCodeContainer">
+                <h3>QR Code для оплаты наличными</h3>
+                <img id="qrCode" alt="QR Code" />
+                <p>Пожалуйста, сохраните этот QR код и покажите его на регистрации.</p>
+                <p><strong>Статус:</strong> Ожидается оплата</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="oplata.js" defer></script>
+</body>
+</html>

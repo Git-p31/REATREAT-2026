@@ -3,142 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация на ретрит 2025</title>
+    <title>Форма регистрации</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/l10n/ru.min.css"> <!-- Подключаем локализацию -->
 </head>
 <body>
-    <div class="form-container">
-        <h1>Регистрация на ретрит 2025</h1>
-        <form action="#" method="post">
-            <div class="input-group-row">
-                <div class="input-group">
-                    <label for="firstName">Имя:</label>
-                    <input type="text" id="firstName" name="firstName" required>
+    <div class="container">
+        <h2>Регистрация на ретрит 2025</h2>
+        <form id="registrationForm" action="oplata.html" method="GET"> <!-- Изменили метод на GET и указали страницу для отправки -->
+            <div class="form-group">
+                <div class="name-container">
+                    <label class="label" for="firstName">Имя:</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Имя" required>
                 </div>
-
-                <div class="input-group">
-                    <label for="lastName">Фамилия:</label>
-                    <input type="text" id="lastName" name="lastName" required>
+                <div class="name-container">
+                    <label class="label" for="lastName">Фамилия:</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Фамилия" required>
                 </div>
-
-                <div class="input-group">
-                    <label for="middleName">Отчество:</label>
-                    <input type="text" id="middleName" name="middleName" required>
+                <div class="name-container">
+                    <label class="label" for="middleName">Отчество:</label>
+                    <input type="text" id="middleName" name="middleName" placeholder="Отчество">
                 </div>
             </div>
 
-            <div class="input-group">
-                <label for="dob">Дата рождения:</label>
-                <input type="date" id="dob" name="dob" required>
+            <div class="centered-container">
+                <label class="label" for="birthDate">Дата рождения:</label>
+                <input type="text" id="birthDate" name="birthDate" placeholder="Дата рождения" required>
             </div>
 
-            <div class="input-group">
-                <label for="church">Церковь/Община:</label>
-                <input type="text" id="church" name="church" required>
+            <div class="centered-container">
+                <label class="label" for="church">Церковь/Община:</label>
+                <input type="text" id="church" name="church" placeholder="Церковь/Община" required>
             </div>
 
-            <div class="input-group">
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
+            <div class="centered-container">
+                <label class="label" for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="example@example.com" required>
             </div>
 
-            <div class="input-group">
-                <label for="phone">Телефон:</label>
-                <div class="phone-input">
-                    <select id="countryCode" name="countryCode" required>
-                        <option value="">Выберите страну</option>
-                    </select>
-                    <input type="tel" id="phone" name="phone" placeholder="Номер телефона" required>
+            <div class="centered-container">
+                <label class="label" for="phone">Телефон:</label>
+                <div class="form-group">
+                    <input type="tel" id="phone" class="form-control" placeholder="Телефон" required>
                 </div>
             </div>
 
-            <div class="input-group">
-                <label for="ministry">Выберите служение:</label>
-                <select id="ministry" name="ministry">
+            <div class="centered-container">
+                <label class="label" for="service">Выберите служение:</label>
+                <select id="service" name="service" required>
                     <option value="">Выберите служение</option>
-                    <option value="ministry1">Равин</option>
-                    <option value="ministry2">Помошник равина</option>
-                    <option value="ministry3">Медия</option>
-                    <option value="ministry4">Ашер</option>
-                    <option value="ministry5">Музыкант</option>
-                    <option value="ministry6">Кафе</option>
-                    <option value="ministry7">Свой вариант</option>
+                    <option value="molitva">Молитва</option>
+                    <option value="pastor">Пастор/Раввин</option>
+                    <option value="proslavlenie">Прославление</option>
+                    <option value="media">Медиа</option>
+                    <option value="detskoe">Детское</option>
+                    <option value="teatr">Театр</option>
+                    <option value="popechenie">Попечение</option>
+                    <option value="konsultirovanie">Консультирование</option>
+                    <option value="kapellan">Капеллан</option>
+                    <option value="drugoe">Жена пастора или раввина</option>
+                    <option value="pomoshchnik">Помощник пастора или раввина</option>
                 </select>
             </div>
 
-            <!-- Обновленная форма -->
-            <div class="input-group">
-                <label for="country">Страна:</label>
-                <select id="country" name="country">
+            <!-- New Country Selection Field -->
+            <div class="centered-container">
+                <label class="label" for="country">Страна:</label>
+                <select id="country" name="country" required>
                     <option value="">Выберите страну</option>
+                    <!-- Страны будут загружаться динамически -->
                 </select>
             </div>
 
-            <div class="input-group">
-                <label for="city">Город:</label>
-                <input type="text" id="city" name="city" required>
+            <div class="centered-container">
+                <label class="label" for="city">Город:</label>
+                <input type="text" id="city" name="city" placeholder="Город" required>
             </div>
 
-            <label for="participationDate">День участия:</label>
-            <table class="participation-table">
-                <thead>
-                    <tr>
-                        <th>Дата</th>
-                        <th>Утренняя сессия</th>
-                        <th>Вечерняя сессия</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>25 августа</td>
-                        <td><input type="checkbox" name="morningSession1"></td>
-                        <td><input type="checkbox" name="eveningSession1"></td>
-                    </tr>
-                    <tr>
-                        <td>26 августа</td>
-                        <td><input type="checkbox" name="morningSession2"></td>
-                        <td><input type="checkbox" name="eveningSession2"></td>
-                    </tr>
-                    <tr>
-                        <td>27 августа</td>
-                        <td><input type="checkbox" name="morningSession3"></td>
-                        <td><input type="checkbox" name="eveningSession3"></td>
-                    </tr>
-                    <tr>
-                        <td>28 августа</td>
-                        <td><input type="checkbox" name="morningSession4"></td>
-                        <td><input type="checkbox" name="eveningSession4"></td>
-                    </tr>
-                    <tr>
-                        <td>29 августа</td>
-                        <td><input type="checkbox" name="morningSession5"></td>
-                        <td><input type="checkbox" name="eveningSession5"></td>
-                    </tr>
-                    <tr>
-                        <td>30 августа</td>
-                        <td><input type="checkbox" name="morningSession6"></td>
-                        <td><input type="checkbox" name="eveningSession6"></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="centered-container">
+                <label class="label">День участия:</label>
+                <table class="smaller-table">
+                    <thead>
+                        <tr>
+                            <th>Дата</th>
+                            <th>Утренняя сессия</th>
+                            <th>Вечерняя сессия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>25 августа</td>
+                            <td><input type="checkbox" name="morningSession" value="25-утро"></td>
+                            <td><input type="checkbox" name="eveningSession" value="25-вечер"></td>
+                        </tr>
+                        <tr>
+                            <td>26 августа</td>
+                            <td><input type="checkbox" name="morningSession" value="26-утро"></td>
+                            <td><input type="checkbox" name="eveningSession" value="26-вечер"></td>
+                        </tr>
+                        <tr>
+                            <td>27 августа</td>
+                            <td><input type="checkbox" name="morningSession" value="27-утро"></td>
+                            <td><input type="checkbox" name="eveningSession" value="27-вечер"></td>
+                        </tr>
+                        <tr>
+                            <td>28 августа</td>
+                            <td><input type="checkbox" name="morningSession" value="28-утро"></td>
+                            <td><input type="checkbox" name="eveningSession" value="28-вечер"></td>
+                        </tr>
+                        <tr>
+                            <td>29 августа</td>
+                            <td><input type="checkbox" name="morningSession" value="29-утро"></td>
+                            <td><input type="checkbox" name="eveningSession" value="29-вечер"></td>
+                        </tr>
+                        <tr>
+                            <td>30 августа</td>
+                            <td><input type="checkbox" name="morningSession" value="30-утро"></td>
+                            <td><input type="checkbox" name="eveningSession" value="30-вечер"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            <label for="translationNeeded">Нужен ли перевод:</label>
-            <div class="translation-options">
-                <div class="translation-option">
-                    <input type="radio" id="yes" name="translationNeeded" value="yes" required>
-                    <label for="yes">Да</label>
-                </div>
-                <div class="translation-option">
-                    <input type="radio" id="no" name="translationNeeded" value="no">
-                    <label for="no">Нет</label>
+            <div class="centered-container">
+                <label class="label">Нужен ли перевод:</label>
+                <div class="radio-buttons">
+                    <label class="radio-container">
+                        <input type="radio" id="needTranslationYes" name="needTranslation" value="yes" required>
+                        <span class="radio-text">Да</span>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-container">
+                        <input type="radio" id="needTranslationNo" name="needTranslation" value="no" required>
+                        <span class="radio-text">Нет</span>
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
             </div>
 
-            <button type="submit">Участвовать</button>
+            <div class="button-container">
+                <button id="payButton" type="submit" class="medium-button">Участвовать</button>
+            </div>
         </form>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/l10n/ru.min.js"></script> <!-- Подключаем локализацию -->
+    <script>
+        // Инициализация календаря для даты рождения
+        flatpickr("#birthDate", {
+            dateFormat: "d.m.Y",
+            maxDate: "today",
+            locale: "ru" // Устанавливаем русский язык
+        });
+
+        // Инициализация intl-tel-input для выбора страны и форматирования номера телефона
+        const phoneInputField = document.querySelector("#phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            initialCountry: "auto",
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+
+        // Функция для загрузки списка стран
+        function loadCountries() {
+            fetch('countries.txt')
+                .then(response => response.text())
+                .then(data => {
+                    const countries = data.split('\n').map(country => country.trim()).filter(country => country !== '');
+                    displayCountries(countries);
+                })
+                .catch(error => console.error('Ошибка при загрузке списка стран:', error));
+        }
+
+        // Функция для отображения стран в выпадающем списке
+        function displayCountries(countries) {
+            const select = document.getElementById('country');
+            countries.sort(); // Сортируем страны по алфавиту
+            for (let i = 0; i < countries.length; i++) {
+                const option = document.createElement('option');
+                option.value = countries[i];
+                option.textContent = countries[i];
+                select.appendChild(option);
+            }
+        }
+
+        // Загружаем страны при загрузке страницы
+        document.addEventListener("DOMContentLoaded", function() {
+            loadCountries();
+        });
+    </script>
     <script src="main.js"></script>
 </body>
 </html>
-    
