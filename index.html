@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация на ретрит 2025</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Регистрация на ретрит 2025</h1>
+        <form action="#" method="post">
+            <div class="input-group-row">
+                <div class="input-group">
+                    <label for="firstName">Имя:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="lastName">Фамилия:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="middleName">Отчество:</label>
+                    <input type="text" id="middleName" name="middleName" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="dob">Дата рождения:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="input-group">
+                <label for="church">Церковь/Община:</label>
+                <input type="text" id="church" name="church" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="phone">Телефон:</label>
+                <div class="phone-input">
+                    <select id="countryCode" name="countryCode" required>
+                        <option value="">Выберите страну</option>
+                    </select>
+                    <input type="tel" id="phone" name="phone" placeholder="Номер телефона" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="ministry">Выберите служение:</label>
+                <select id="ministry" name="ministry">
+                    <option value="">Выберите служение</option>
+                    <option value="ministry1">Равин</option>
+                    <option value="ministry2">Помошник равина</option>
+                    <option value="ministry3">Медия</option>
+                    <option value="ministry4">Ашер</option>
+                    <option value="ministry5">Музыкант</option>
+                    <option value="ministry6">Кафе</option>
+                    <option value="ministry7">Свой вариант</option>
+                </select>
+            </div>
+
+            <!-- Обновленная форма -->
+            <div class="input-group">
+                <label for="country">Страна:</label>
+                <select id="country" name="country">
+                    <option value="">Выберите страну</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="city">Город:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+
+            <label for="participationDate">День участия:</label>
+            <table class="participation-table">
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Утренняя сессия</th>
+                        <th>Вечерняя сессия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>25 августа</td>
+                        <td><input type="checkbox" name="morningSession1"></td>
+                        <td><input type="checkbox" name="eveningSession1"></td>
+                    </tr>
+                    <tr>
+                        <td>26 августа</td>
+                        <td><input type="checkbox" name="morningSession2"></td>
+                        <td><input type="checkbox" name="eveningSession2"></td>
+                    </tr>
+                    <tr>
+                        <td>27 августа</td>
+                        <td><input type="checkbox" name="morningSession3"></td>
+                        <td><input type="checkbox" name="eveningSession3"></td>
+                    </tr>
+                    <tr>
+                        <td>28 августа</td>
+                        <td><input type="checkbox" name="morningSession4"></td>
+                        <td><input type="checkbox" name="eveningSession4"></td>
+                    </tr>
+                    <tr>
+                        <td>29 августа</td>
+                        <td><input type="checkbox" name="morningSession5"></td>
+                        <td><input type="checkbox" name="eveningSession5"></td>
+                    </tr>
+                    <tr>
+                        <td>30 августа</td>
+                        <td><input type="checkbox" name="morningSession6"></td>
+                        <td><input type="checkbox" name="eveningSession6"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <label for="translationNeeded">Нужен ли перевод:</label>
+            <div class="translation-options">
+                <div class="translation-option">
+                    <input type="radio" id="yes" name="translationNeeded" value="yes" required>
+                    <label for="yes">Да</label>
+                </div>
+                <div class="translation-option">
+                    <input type="radio" id="no" name="translationNeeded" value="no">
+                    <label for="no">Нет</label>
+                </div>
+            </div>
+
+            <button type="submit">Участвовать</button>
+        </form>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
+    
