@@ -32,8 +32,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const needTranslation = urlParams.get('needTranslation') === 'yes' ? 'Да' : 'Нет';
     document.getElementById('translation').textContent = needTranslation;
 
+    // Рассчитываем стоимость сессий
+    const morningSessionCost = parseInt(urlParams.get('morningSessionCost') || '100'); // Ставим значение по умолчанию, если не передано
+    const eveningSessionCost = parseInt(urlParams.get('eveningSessionCost') || '50'); // Ставим значение по умолчанию
+    const translationCost = urlParams.get('needTranslation') === 'yes' ? 50 : 0; // Стоимость перевода
+    const totalCost = (morningSessions.length * morningSessionCost) + (eveningSessions.length * eveningSessionCost) + translationCost;
+
     // Отображаем итоговую стоимость
-    document.getElementById('totalCost').textContent = urlParams.get('totalCost') || '0';
+    document.getElementById('totalCost').textContent = `${totalCost} грн`;
+
+    // Отображаем стоимость сессий и перевода
+    document.getElementById('morningSessionsCost').textContent = `${morningSessions.length * morningSessionCost} грн`;
+    document.getElementById('eveningSessionsCost').textContent = `${eveningSessions.length * eveningSessionCost} грн`;
+    document.getElementById('translationCostDisplay').textContent = `${translationCost} грн`;
 
     // Элементы модального окна
     const modal = document.getElementById('paymentModal');
@@ -68,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
             Город: ${urlParams.get('city') || ''}
             Дни участия: ${morningSessions.join(', ')} ${eveningSessions.join(', ')}
             Нужен перевод: ${needTranslation}
-            Итоговая сумма: ${urlParams.get('totalCost') || '0'} грн
+            Итоговая сумма: ${totalCost} грн
             Статус: Ожидает оплаты наличными
         `.trim();
 

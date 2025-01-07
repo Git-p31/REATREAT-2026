@@ -189,3 +189,30 @@ button#payButton:hover {
     background: white;
 }
 
+.language-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.language-button {
+    background-color: #008FE8; /* Голубой фон */
+    color: #fff; /* Белый текст */
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.language-button:hover {
+    background-color: #0076b6; /* Темнее голубой при наведении */
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+}
+
+.language-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 143, 232, 0.7); /* Голубое свечение при фокусе */
+}

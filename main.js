@@ -1,26 +1,4 @@
-function loadCountries() {
-    fetch('countries.txt')
-        .then(response => response.text())
-        .then(data => {
-            const countries = data.split('\n').map(country => country.trim()).filter(country => country !== '');
-            displayCountries(countries);
-        })
-        .catch(error => console.error('Ошибка при загрузке списка стран:', error));
-}
-
-// Функция для отображения стран в выпадающем списке
-function displayCountries(countries) {
-    var select = document.getElementById('country');
-    countries.sort(); // Сортируем страны по алфавиту
-    for (var i = 0; i < countries.length; i++) {
-        var option = document.createElement('option');
-        option.value = countries[i];
-        option.textContent = countries[i];
-        select.appendChild(option);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
     // Обработчик события на клик кнопки "Участвовать"
     document.getElementById('payButton').addEventListener('click', function(event) {
         event.preventDefault(); // Отменяем стандартное действие формы
@@ -40,11 +18,15 @@ document.addEventListener("DOMContentLoaded", function() {
         const eveningSessions = getCheckedSessions('eveningSession');
         const needTranslation = document.getElementById('needTranslationYes').checked ? 'yes' : 'no';
 
-        // Рассчитываем стоимость
+        // Стоимость за сессии и перевод
         const morningSessionCost = 100;
         const eveningSessionCost = 50;
         const translationCost = needTranslation === 'yes' ? 50 : 0;
-        const totalCost = (morningSessions.length * morningSessionCost) + (eveningSessions.length * eveningSessionCost) + translationCost;
+
+        // Рассчитываем стоимость
+        const morningSessionTotalCost = morningSessions.length * morningSessionCost;
+        const eveningSessionTotalCost = eveningSessions.length * eveningSessionCost;
+        const totalCost = morningSessionTotalCost + eveningSessionTotalCost + translationCost;
 
         // Строим URL для перенаправления на oplata.html с параметрами
         let redirectURL = `oplata.html?firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}&middleName=${encodeURIComponent(middleName)}&birthDate=${encodeURIComponent(birthDate)}&church=${encodeURIComponent(church)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&service=${encodeURIComponent(service)}&country=${encodeURIComponent(country)}&city=${encodeURIComponent(city)}&needTranslation=${needTranslation}&totalCost=${totalCost}`;
@@ -57,13 +39,16 @@ document.addEventListener("DOMContentLoaded", function() {
             redirectURL += `&eveningSession=${encodeURIComponent(session)}`;
         });
 
+        // Добавляем стоимость за сессии
+        redirectURL += `&morningSessionCost=${morningSessionTotalCost}&eveningSessionCost=${eveningSessionTotalCost}&translationCost=${translationCost}`;
+
         // Перенаправляем пользователя на oplata.html
         window.location.href = redirectURL;
     });
-    
+
     // Загрузка и отображение списка стран при загрузке страницы
     loadCountries();
-    
+
     // Инициализация ввода телефона с использованием intl-tel-input
     const phoneInput = document.querySelector('#phone');
     intlTelInput(phoneInput, {
