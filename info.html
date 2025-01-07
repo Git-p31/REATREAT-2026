@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Page</title>
+    <link rel="stylesheet" href="info.css">
+</head>
+<body>
+    <div class="id-card-holder">
+        <div class="id-card">
+            <div class="header">
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_n1Cvs6GEkIfE_q61RE-F978-46xYaRxGMoNd8hYYtTOj0=s900-c-k-c0x00ffffff-no-rj" alt="Logo">
+            </div>
+            <h2 id="userName">Имя Фамилия</h2>
+            <div class="qr-code">
+                <img id="qrCode" src="https://www.shopify.com/growth-tools-assets/qr-code/shopify-faae7065b7b351d28495b345ed76096c03de28bac346deb1e85db632862fd0e4.png" alt="QR Code">
+            </div>
+            
+            <hr>
+            <p id="contact">Телефон и Email</p>
+            <p id="sessions">Сессии: Не указаны</p>
+            <p id="totalCost">Итоговая сумма: 0 грн</p>
+        </div>
+    </div>
+
+    <script>
+        // Извлечение параметров из URL
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Получаем параметры и обновляем страницу
+        const firstName = urlParams.get('firstName') || 'Неизвестно';
+        const lastName = urlParams.get('lastName') || 'Неизвестно';
+        const middleName = urlParams.get('middleName') || 'Неизвестно';
+        const birthDate = urlParams.get('birthDate') || 'Не указана';
+        const church = urlParams.get('church') || 'Не указана';
+        const email = urlParams.get('email') || 'Не указано';
+        const phone = urlParams.get('phone') || 'Не указано';
+        const service = urlParams.get('service') || 'Не указано';
+        const city = urlParams.get('city') || 'Не указан';
+        
+        // Получаем массивы сессий (если они есть)
+        const morningSessions = urlParams.get('morningSession') ? urlParams.get('morningSession').split(',') : ['Не указаны'];
+        const eveningSessions = urlParams.get('eveningSession') ? urlParams.get('eveningSession').split(',') : ['Не указаны'];
+        
+        // Рассчитываем итоговую сумму
+        const totalCost = urlParams.get('totalCost') || '0 грн';
+
+        // Заполнение информации на странице
+        document.getElementById('userName').textContent = `${firstName} ${lastName} ${middleName}`;
+        document.getElementById('contact').textContent = `Телефон: ${phone} | Email: ${email}`;
+        
+        // Формируем строки для сессий
+        const sessionText = [
+            ...morningSessions.map(session => `Утренняя сессия: ${session}`),
+            ...eveningSessions.map(session => `Вечерняя сессия: ${session}`)
+        ].join(' | ');
+
+        document.getElementById('sessions').textContent = `Сессии: ${sessionText}`;
+        document.getElementById('totalCost').textContent = `Итоговая сумма: ${totalCost}`;
+
+        // Генерация QR-кода (если требуется)
+        const qrCode = urlParams.get('qrCode') || 'https://www.shopify.com/growth-tools-assets/qr-code/shopify-faae7065b7b351d28495b345ed76096c03de28bac346deb1e85db632862fd0e4.png';
+        document.getElementById('qrCode').src = qrCode;
+    </script>
+</body>
+</html>

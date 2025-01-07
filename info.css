@@ -1,0 +1,85 @@
+/* Стиль для фона и базовых элементов */
+body {
+    background-color: #d7d6d3;
+    font-family: 'Verdana', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f0f0;
+}
+
+/* Контейнер для карточки */
+.id-card-holder {
+    width: 250px;
+    padding: 10px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Карточка с контентом */
+.id-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Логотип */
+.header img {
+    width: 120px;
+    margin-top: 10px;
+}
+
+/* Фотография пользователя */
+.photo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+/* Имя пользователя */
+h2 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* QR код */
+.qr-code img {
+    width: 60px;
+    height: 60px;
+    margin: 10px 0;
+}
+
+/* Адрес и контактная информация */
+p {
+    font-size: 12px;
+    margin: 4px 0;
+    color: #555;
+}
+
+h3 {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #333;
+    font-weight: normal;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+/* Элементы интерфейса */
+#address, #contact {
+    font-size: 12px;
+    color: #777;
+    margin: 5px 0;
+}
