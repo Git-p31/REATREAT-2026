@@ -51,7 +51,7 @@
             <div class="centered-container">
                 <label class="label" for="phone" data-translate="phoneLabel">Телефон:</label>
                 <div class="form-group">
-                    <input type="tel" id="phone" class="form-control" placeholder="Телефон" required>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Телефон" required>
                 </div>
             </div>
 
@@ -147,6 +147,17 @@
             initialCountry: "auto",
             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
         });
+        
+                    // Передача номера телефона с кодом страны при отправке формы
+                    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+                const phoneNumber = phoneInput.getNumber(); // Получаем номер телефона в формате E.164
+                if (!phoneInput.isValidNumber()) {
+                    event.preventDefault();
+                    alert("Введите корректный номер телефона.");
+                    return;
+                }
+                phoneInputField.value = phoneNumber; // Заменяем значение поля телефона на формат E.164
+            });
 
         // Функция для загрузки списка стран
         function loadCountries() {
@@ -260,6 +271,7 @@
         document.getElementById('langRu').addEventListener('click', () => changeLanguage('ru'));
         document.getElementById('langUa').addEventListener('click', () => changeLanguage('ua'));
     </script>
+    
     <script crs="main.js"></script>
 </body>
 </html>

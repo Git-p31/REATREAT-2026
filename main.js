@@ -1,22 +1,28 @@
-    document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Обработчик события на клик кнопки "Участвовать"
-    document.getElementById('payButton').addEventListener('click', function(event) {
+    document.getElementById('payButton').addEventListener('click', function (event) {
         event.preventDefault(); // Отменяем стандартное действие формы
 
         // Получаем параметры из формы
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-        const middleName = document.getElementById('middleName').value;
-        const birthDate = document.getElementById('birthDate').value;
-        const church = document.getElementById('church').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const service = document.getElementById('service').value;
-        const country = document.getElementById('country').value; // Получаем выбранную страну
-        const city = document.getElementById('city').value;
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const middleName = document.getElementById('middleName').value.trim();
+        const birthDate = document.getElementById('birthDate').value.trim();
+        const church = document.getElementById('church').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim(); // Телефон
+        const service = document.getElementById('service').value.trim();
+        const country = document.getElementById('country').value.trim();
+        const city = document.getElementById('city').value.trim();
         const morningSessions = getCheckedSessions('morningSession');
         const eveningSessions = getCheckedSessions('eveningSession');
         const needTranslation = document.getElementById('needTranslationYes').checked ? 'yes' : 'no';
+
+        // Проверка обязательных полей
+        if (!phone) {
+            alert("Пожалуйста, укажите телефон.");
+            return;
+        }
 
         // Стоимость за сессии и перевод
         const morningSessionCost = 100;
