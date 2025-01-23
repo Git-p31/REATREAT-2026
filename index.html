@@ -188,90 +188,139 @@
         });
 
         // Language translation function
-        const translations = {
-            en: {
-                title: "Retreat 2025 Registration",
-                firstNameLabel: "First Name:",
-                lastNameLabel: "Last Name:",
-                middleNameLabel: "Middle Name:",
-                birthDateLabel: "Date of Birth:",
-                churchLabel: "Church/Community:",
-                emailLabel: "E-mail:",
-                phoneLabel: "Phone:",
-                serviceLabel: "Choose Ministry:",
-                countryLabel: "Country:",
-                cityLabel: "City:",
-                participationDayLabel: "Day of Participation:",
-                translationLabel: "Do you need translation?",
-                participateButton: "Participate",
-                date: "Date",
-                morningSession: "Morning Session",
-                eveningSession: "Evening Session",
-                yes: "Yes",
-                no: "No",
-                serviceSelect: "Choose Ministry",
-            },
-            ru: {
-                title: "Регистрация на ретрит 2025",
-                firstNameLabel: "Имя:",
-                lastNameLabel: "Фамилия:",
-                middleNameLabel: "Отчество:",
-                birthDateLabel: "Дата рождения:",
-                churchLabel: "Церковь/Община:",
-                emailLabel: "E-mail:",
-                phoneLabel: "Телефон:",
-                serviceLabel: "Выберите служение:",
-                countryLabel: "Страна:",
-                cityLabel: "Город:",
-                participationDayLabel: "День участия:",
-                translationLabel: "Нужен ли перевод?",
-                participateButton: "Участвовать",
-                date: "Дата",
-                morningSession: "Утренняя сессия",
-                eveningSession: "Вечерняя сессия",
-                yes: "Да",
-                no: "Нет",
-                serviceSelect: "Выберите служение",
-            },
-            ua: {
-                title: "Реєстрація на ретрит 2025",
-                firstNameLabel: "Ім'я:",
-                lastNameLabel: "Прізвище:",
-                middleNameLabel: "По батькові:",
-                birthDateLabel: "Дата народження:",
-                churchLabel: "Церква/Община:",
-                emailLabel: "E-mail:",
-                phoneLabel: "Телефон:",
-                serviceLabel: "Оберіть служіння:",
-                countryLabel: "Країна:",
-                cityLabel: "Місто:",
-                participationDayLabel: "День участі:",
-                translationLabel: "Потрібен переклад?",
-                participateButton: "Брати участь",
-                date: "Дата",
-                morningSession: "Ранкова сесія",
-                eveningSession: "Вечірня сесія",
-                yes: "Так",
-                no: "Ні",
-                serviceSelect: "Оберіть служіння",
-            }
-        };
-
-        function changeLanguage(language) {
-            document.querySelectorAll('[data-translate]').forEach((el) => {
-                const translationKey = el.getAttribute('data-translate');
-                if (translations[language] && translations[language][translationKey]) {
-                    el.textContent = translations[language][translationKey];
-                }
-            });
+    const translations = {
+        en: {
+            title: "Retreat 2025 Registration",
+            firstNameLabel: "First Name:",
+            lastNameLabel: "Last Name:",
+            middleNameLabel: "Middle Name:",
+            birthDateLabel: "Date of Birth:",
+            churchLabel: "Church/Community:",
+            emailLabel: "E-mail:",
+            phoneLabel: "Phone:",
+            serviceLabel: "Choose Ministry:",
+            countryLabel: "Country:",
+            cityLabel: "City:",
+            participationDayLabel: "Day of Participation:",
+            translationLabel: "Do you need translation?",
+            participateButton: "Participate",
+            date: "Date",
+            morningSession: "Morning Session",
+            eveningSession: "Evening Session",
+            yes: "Yes",
+            no: "No",
+            serviceSelect: "Choose Ministry",
+            serviceMolitva: "Prayer",
+            servicePastor: "Pastor/Rabbi",
+            serviceProslavlenie: "Worship",
+            serviceMedia: "Media",
+            serviceDetskoe: "Children's Ministry",
+            serviceTeatr: "Theater",
+            servicePopechenie: "Care",
+            serviceKonsultirovanie: "Counseling",
+            serviceKapellan: "Chaplain",
+            serviceDrugoe: "Pastor's Wife",
+            servicePomoshchnik: "Assistant to Pastor/Rabbi",
+            countrySelect: "Choose Country",
+        },
+        ru: {
+            title: "Регистрация на ретрит 2025",
+            firstNameLabel: "Имя:",
+            lastNameLabel: "Фамилия:",
+            middleNameLabel: "Отчество:",
+            birthDateLabel: "Дата рождения:",
+            churchLabel: "Церковь/Община:",
+            emailLabel: "E-mail:",
+            phoneLabel: "Телефон:",
+            serviceLabel: "Выберите служение:",
+            countryLabel: "Страна:",
+            cityLabel: "Город:",
+            participationDayLabel: "День участия:",
+            translationLabel: "Нужен ли перевод?",
+            participateButton: "Участвовать",
+            date: "Дата",
+            morningSession: "Утренняя сессия",
+            eveningSession: "Вечерняя сессия",
+            yes: "Да",
+            no: "Нет",
+            serviceSelect: "Выберите служение",
+            serviceMolitva: "Молитва",
+            servicePastor: "Пастор/Раввин",
+            serviceProslavlenie: "Прославление",
+            serviceMedia: "Медиа",
+            serviceDetskoe: "Детское служение",
+            serviceTeatr: "Театр",
+            servicePopechenie: "Попечение",
+            serviceKonsultirovanie: "Консультирование",
+            serviceKapellan: "Капеллан",
+            serviceDrugoe: "Жена пастора или раввина",
+            servicePomoshchnik: "Помощник пастора или раввина",
+            countrySelect: "Выберите страну",
+        },
+        ua: {
+            title: "Реєстрація на ретрит 2025",
+            firstNameLabel: "Ім'я:",
+            lastNameLabel: "Прізвище:",
+            middleNameLabel: "По батькові:",
+            birthDateLabel: "Дата народження:",
+            churchLabel: "Церква/Община:",
+            emailLabel: "E-mail:",
+            phoneLabel: "Телефон:",
+            serviceLabel: "Оберіть служіння:",
+            countryLabel: "Країна:",
+            cityLabel: "Місто:",
+            participationDayLabel: "День участі:",
+            translationLabel: "Потрібен переклад?",
+            participateButton: "Брати участь",
+            date: "Дата",
+            morningSession: "Ранкова сесія",
+            eveningSession: "Вечірня сесія",
+            yes: "Так",
+            no: "Ні",
+            serviceSelect: "Оберіть служіння",
+            serviceMolitva: "Молитва",
+            servicePastor: "Пастор/Равін",
+            serviceProslavlenie: "Прославлення",
+            serviceMedia: "Медіа",
+            serviceDetskoe: "Дитяче служіння",
+            serviceTeatr: "Театр",
+            servicePopechenie: "Піклування",
+            serviceKonsultirovanie: "Консультування",
+            serviceKapellan: "Капелан",
+            serviceDrugoe: "Дружина пастора чи равіна",
+            servicePomoshchnik: "Помічник пастора чи равіна",
+            countrySelect: "Оберіть країну",
         }
+    };
 
-        // Add event listeners to language buttons
-        document.getElementById('langEn').addEventListener('click', () => changeLanguage('en'));
-        document.getElementById('langRu').addEventListener('click', () => changeLanguage('ru'));
-        document.getElementById('langUa').addEventListener('click', () => changeLanguage('ua'));
-    </script>
-    
+    function changeLanguage(language) {
+        // Перевод текстов
+        document.querySelectorAll('[data-translate]').forEach((el) => {
+            const key = el.getAttribute('data-translate');
+            if (translations[language][key]) {
+                el.textContent = translations[language][key];
+            }
+        });
+
+        // Перевод выпадающих списков
+        const serviceOptions = [
+            "serviceSelect", "serviceMolitva", "servicePastor", "serviceProslavlenie",
+            "serviceMedia", "serviceDetskoe", "serviceTeatr", "servicePopechenie",
+            "serviceKonsultirovanie", "serviceKapellan", "serviceDrugoe", "servicePomoshchnik"
+        ];
+
+        serviceOptions.forEach(optionKey => {
+            const option = document.querySelector(`option[data-translate="${optionKey}"]`);
+            if (option && translations[language][optionKey]) {
+                option.textContent = translations[language][optionKey];
+            }
+        });
+    }
+
+    document.getElementById('langEn').addEventListener('click', () => changeLanguage('en'));
+    document.getElementById('langRu').addEventListener('click', () => changeLanguage('ru'));
+    document.getElementById('langUa').addEventListener('click', () => changeLanguage('ua'));
+</script>
     <script crs="main.js"></script>
 </body>
 </html>
